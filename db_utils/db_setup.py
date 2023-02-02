@@ -2,8 +2,8 @@
 
 from contextlib import closing
 from sqlite3 import Connection
-from subcategories_dao import add_category
-from constants import ALL_DRESSES, ALL_BAGS, ALL_HOME, ALL_JEWELRY, ALL_PANTS, ALL_PERFUMES, ALL_SHOES, ALL_TOPS
+from daos.subcategories_dao import add_category
+from constants.constants import ALL_DRESSES, ALL_BAGS, ALL_HOME, ALL_JEWELRY, ALL_PANTS, ALL_PERFUMES, ALL_SHOES, ALL_TOPS
 
 def build_categories(conn: Connection):
     for dress in ALL_DRESSES:
