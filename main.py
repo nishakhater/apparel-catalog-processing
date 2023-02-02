@@ -2,7 +2,7 @@ from sqlite3 import Connection, Error
 import sqlite3
 import pandas as pd
 import numpy as np
-import subcategories_dao
+from daos import subcategories_dao
 
 
 # Takes in a dataframe and returns the dataframe with categories attached
