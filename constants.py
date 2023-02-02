@@ -1,0 +1,56 @@
+# Categories
+JEANS = 'Jeans'
+PANTS = 'Pants'
+SKIRT = 'Skirt'
+SHORTS = 'Shorts'
+TROUSERS = 'Trousers'
+TIGHTS = 'Tights'
+
+ALL_PANTS = [JEANS, PANTS, SKIRT, SHORTS, TROUSERS, TIGHTS]
+
+SHIRT = 'Shirt'
+BLOUSE = 'Blouse'
+TOP = 'Top'
+TSHIRT = 'T-shirt'
+SWEATER = 'Sweater'
+
+ALL_TOPS = [SHIRT, BLOUSE, TOP, TSHIRT, SWEATER]
+
+BAG = 'Bag'
+PURSE = 'Purse'
+SATCHEL = 'Satchel'
+
+ALL_BAGS = [BAG, PURSE, SATCHEL]
+
+LAMP = 'Lamp'
+PLACEMATS = 'Placemats'
+BOWLS = 'Bowls'
+
+ALL_HOME = [LAMP, PLACEMATS, BOWLS]
+
+EAU_DE_TOILETTE = 'Eau De Toilette'
+EAU_DE_PARFUM = 'Eau De Parfum'
+EDT = 'EDT'
+
+ALL_PERFUMES = [EAU_DE_PARFUM, EAU_DE_TOILETTE, EDT]
+
+NECKLACE = 'Necklace'
+RING = 'Ring'
+BRACELET = 'Bracelet'
+BANGLE = 'Bangle'
+CUFFLINKS = 'Cufflinks'
+EARRINGS = 'Earrings'
+
+ALL_JEWELRY = [NECKLACE, RING, BRACELET, BANGLE, CUFFLINKS, EARRINGS]
+
+SHOES = 'Shoes'
+SANDALS = 'Sandals'
+BOOTS = 'Boots'
+
+ALL_SHOES = [SHOES, SANDALS, BOOTS]
+
+SUIT = 'Suit'
+DRESS = 'Dress'
+JUMPSUIT = 'Jumpsuit'
+
+ALL_DRESSES = [SUIT, DRESS, JUMPSUIT]
