@@ -5,16 +5,15 @@ import numpy as np
 from daos import subcategories_dao
 
 
-# Takes in a dataframe and returns the dataframe with categories attached
-# to it
+# Takes in a dataframe and returns the dataframe with categories attached to it
 def categorize(conn: Connection, df: pd.DataFrame) -> pd.DataFrame:
     def categorize_helper(row):
         name = row['ProductName']
         categories = subcategories_dao.get_category_and_subcategory(conn, name)
         return categories.get('category')
 
-    df["Category"] = np.nan
-    df["Category"] = df.apply(lambda row: categorize_helper(row), axis=1)
+    df['Category'] = np.nan
+    df['Category'] = df.apply(lambda row: categorize_helper(row), axis=1)
 
         
 
@@ -23,9 +22,13 @@ def categorize(conn: Connection, df: pd.DataFrame) -> pd.DataFrame:
 def remove_brand_from_name(df: pd.DataFrame) -> pd.DataFrame:
     def remove_brand(row):
         brand = row['ProductBrand']
+        name = row['ProductName']
+        return name.replace(brand, "").lstrip()
+
     df["ProductName"] = df.apply(lambda row: remove_brand(row), axis=1)
 
 
+# Connection to SQLite3 database
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by the db_file
@@ -46,6 +49,9 @@ def main():
 
     # add categories to the dataframe of products
     categorize(conn, df)
+
+    # removing brand name from product name
+    remove_brand_from_name(df)
     
 
 main()
