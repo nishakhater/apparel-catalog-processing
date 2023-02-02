@@ -2,6 +2,8 @@
 
 This project takes in a sample dataset `myntra_products_catalog.csv`, which consists of clothing, shoes, and home goods. From the raw dataset, we parse the data, identify product categories and subcategories, clean title values, and provide group summaries.
 
+The project is written in Python, uses a SQLite3 database and Pandas to parse and perform data operations.
+
 ## Data Operations 
 
 ### Categorization
