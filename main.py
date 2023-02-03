@@ -3,6 +3,7 @@ import sqlite3
 import pandas as pd
 import numpy as np
 from daos import subcategories_dao
+import db_setup
 
 
 # Takes in a dataframe and returns the dataframe with categories attached to it
@@ -14,8 +15,7 @@ def categorize(conn: Connection, df: pd.DataFrame) -> pd.DataFrame:
 
     df['Category'] = np.nan
     df['Category'] = df.apply(lambda row: categorize_helper(row), axis=1)
-
-        
+    return df
 
 
 # Removes the brand from the product title if it is present
@@ -26,6 +26,12 @@ def remove_brand_from_name(df: pd.DataFrame) -> pd.DataFrame:
         return name.replace(brand, "").lstrip()
 
     df["ProductName"] = df.apply(lambda row: remove_brand(row), axis=1)
+    return df
+
+
+def remove_num_images(df: pd.DataFrame) -> pd.DataFrame:
+    df.drop(columns=['NumImages'])
+    return df
 
 
 # Connection to SQLite3 database
@@ -52,6 +58,9 @@ def main():
 
     # removing brand name from product name
     remove_brand_from_name(df)
+
+    # removing the NumImages column, as we don't care about it
+    remove_num_images(df)
     
 
 main()
