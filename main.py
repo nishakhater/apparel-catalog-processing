@@ -2,7 +2,7 @@ from sqlite3 import Connection, Error
 import sqlite3
 import pandas as pd
 import numpy as np
-from daos import subcategories_dao
+from daos import subcategories_dao, myntra_products_dao
 import db_setup
 
 
@@ -30,7 +30,7 @@ def remove_brand_from_name(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def remove_num_images(df: pd.DataFrame) -> pd.DataFrame:
-    df.drop(columns=['NumImages'])
+    df.drop('NumImages', axis=1, inplace=True)
     return df
 
 
@@ -54,13 +54,16 @@ def main():
     df = pd.read_csv('myntra_products_catalog.csv')
 
     # add categories to the dataframe of products
-    categorize(conn, df)
+    df = categorize(conn, df)
 
     # removing brand name from product name
-    remove_brand_from_name(df)
+    df = remove_brand_from_name(df)
 
     # removing the NumImages column, as we don't care about it
-    remove_num_images(df)
+    df = remove_num_images(df)
+
+    # now that we've parsed and updated the data, add it to SQL table
+    myntra_products_dao.add_products(conn, df)
     
 
 main()
