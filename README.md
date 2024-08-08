@@ -4,6 +4,8 @@ This project takes in a sample dataset `myntra_products_catalog.csv`, which cons
 
 The project is written in Python, uses a SQLite3 database and Pandas to parse and perform data operations.
 
+MIT Liscense
+
 ## Data Operations 
 
 ### Categorization
@@ -24,5 +26,3 @@ After the data has been cleaned, categorized, and processed, we can push it to o
 2. How could we attach this project to a data orchestration layer such as Dagster or Airflow that would expect product catalogs on a recurring basis? 
 3. What would de-duplication look like for data coming in a recurring basis? What if duplicate titles were similar but not exact text matches?
 4. What other information could we pull from the product description column?
-
-MIT Liscense
