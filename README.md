@@ -23,4 +23,6 @@ After the data has been cleaned, categorized, and processed, we can push it to o
 1. How can we optimize product categorization? Are there ways to improve category lookup speed? Can we improve precision of categories (e.g. mini dress or maxi dress vs. dress)? How can we limit null values? 
 2. How could we attach this project to a data orchestration layer such as Dagster or Airflow that would expect product catalogs on a recurring basis? 
 3. What would de-duplication look like for data coming in a recurring basis? What if duplicate titles were similar but not exact text matches?
-4. What other information could we pull from the product description column? 
+4. What other information could we pull from the product description column?
+
+MIT Liscense
